@@ -8,7 +8,9 @@
     </head>
     <body class="tabs-back">
     <div class="w3-container">
-        <h2 style="text-align: center; margin-bottom: 3%">{{ Auth::user()->name }}'s profile</h2>
+        <h2 style="text-align: center">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h2>
+        <h3 style="text-align: center">{{ Auth::user()->address }}</h3>
+        <h3 style="text-align: center; margin-bottom: 1%">{{ Auth::user()->city }}</h3>
         <div class="w3-row">
             <a href="javascript:void(0)" onclick="openCity(event, 'Contract');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Contract Information</div>

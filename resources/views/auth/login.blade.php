@@ -18,7 +18,7 @@
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('email') }} or you're on the list for approval</strong>
                                     </span>
                                 @endif
                             </div>

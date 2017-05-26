@@ -42,7 +42,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $this->create(['name' => $request->name, 'email' => $request->email, 'password' => $request->password]);
+        $this->create(['first_name' => $request->first_name, 'last_name' => $request->last_name, 'address' => $request->address, 'city' => $request->city, 'email' => $request->email, 'password' => $request->password]);
         return view('registered');
     }
 
@@ -55,9 +55,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'address' => 'required|string|max:100',
+            'city' => 'required|string|max:50',
+            'email' => 'required|string|email|max:100|primary:users',
+            'password' => 'required|string|min:8|confirmed',
         ]);
     }
 
@@ -70,7 +73,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'address' => $data['address'],
+            'city' => $data['city'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

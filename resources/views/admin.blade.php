@@ -14,7 +14,10 @@
                         <thead>
 
                         <th><input type="checkbox" id="checkall" /></th>
-                        <th>Full Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>City</th>
                         <th>Email</th>
                         <th>Date Created</th>
                         <th>Approve</th>
@@ -24,7 +27,10 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td><input type="checkbox" class="checkthis" /></td>
-                                <td>{{$user->name}}</td>
+                                <td>{{$user->first_name}}</td>
+                                <td>{{$user->last_name}}</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->city}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td>
