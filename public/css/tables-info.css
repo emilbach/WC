@@ -1,113 +1,66 @@
+.table-fill th {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    color: white;
+}
+
+.table-fill td {
+    font-weight: bold;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
 .table-fill {
-    background: white;
-    border-radius:3px;
-    border-collapse: collapse;
-    height: 320px;
-    margin: auto;
-    max-width: 600px;
-    padding:5px;
+    text-align: center;
+    overflow: hidden;
     width: 100%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    animation: float 5s infinite;
+    margin: 0 auto;
+    display: table;
+
 }
 
-th {
-    color:#D5DDE5;;
-    background:#1b1e24;
-    border-bottom:4px solid #9ea7af;
-    border-right: 1px solid #343a45;
-    font-size:23px;
-    font-weight: 100;
-    padding:24px;
-    text-align:left;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    vertical-align:middle;
+.table-fill td, .table-fill th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left:2%;
 }
 
-th:first-child {
-    border-top-left-radius:3px;
+/* Background-color of the odd rows */
+.table-fill tr:nth-child(odd) {
+    background-color: #323C50;
 }
 
-th:last-child {
-    border-top-right-radius:3px;
-    border-right:none;
+/* Background-color of the even rows */
+.table-fill tr:nth-child(even) {
+    background-color: #2C3446;
 }
 
-tr {
-    border-top: 1px solid #C1C3D1;
-    border-bottom-: 1px solid #C1C3D1;
-    color:#666B85;
-    font-size:16px;
-    font-weight:normal;
-    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+.table-fill th {
+    background-color: #1F2739;
 }
 
-tr:hover td {
-    background:#4E5066;
-    color:#FFFFFF;
-    border-top: 1px solid #22262e;
-    border-bottom: 1px solid #22262e;
+.table-fill td:first-child { color: white; }
+
+.table-fill tr:hover {
+    background-color: #464A52;
+    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+    -moz-box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
 }
 
-tr:first-child {
-    border-top:none;
-}
+.table-fill td:hover {
+    background-color: #FFF842;
+    color: #403E10;
+    font-weight: bold;
 
-tr:last-child {
-    border-bottom:none;
-}
+    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
 
-tr:nth-child(odd) td {
-    background:#EBEBEB;
-}
-
-tr:nth-child(odd):hover td {
-    background:#4E5066;
-}
-
-tr:last-child td:first-child {
-    border-bottom-left-radius:3px;
-}
-
-tr:last-child td:last-child {
-    border-bottom-right-radius:3px;
-}
-
-td {
-    background:#FFFFFF;
-    padding:20px;
-    text-align:left;
-    vertical-align:middle;
-    font-weight:300;
-    font-size:18px;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-    border-right: 1px solid #C1C3D1;
-}
-
-td:last-child {
-    border-right: 0px;
-}
-
-th.text-left {
-    text-align: left;
-}
-
-th.text-center {
-    text-align: center;
-}
-
-th.text-right {
-    text-align: right;
-}
-
-td.text-left {
-    text-align: left;
-}
-
-td.text-center {
-    text-align: center;
-}
-
-td.text-right {
-    text-align: right;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
 }

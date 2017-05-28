@@ -2,7 +2,7 @@
 
 @section('content')
     <head>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{{URL('css/tabs-look.css')}}">
         <link rel="stylesheet" href="{{URL('css/main.css')}}" />
         <link rel="stylesheet" href="{{URL('css/tables-info.css')}}" />
     </head>
@@ -12,69 +12,105 @@
         <h3 style="text-align: center">{{ Auth::user()->address }}</h3>
         <h3 style="text-align: center; margin-bottom: 1%">{{ Auth::user()->city }}</h3>
         <div class="w3-row">
-            <a href="javascript:void(0)" onclick="openCity(event, 'Contract');">
+            <a href="javascript:void(0)" onclick="openTab(event, 'Contract');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Contract Information</div>
             </a>
-            <a href="javascript:void(0)" onclick="openCity(event, 'Billing');">
+            <a href="javascript:void(0)" onclick="openTab(event, 'Billing');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Billing Information</div>
             </a>
-            <a href="javascript:void(0)" onclick="openCity(event, 'Measuring');">
+            <a href="javascript:void(0)" onclick="openTab(event, 'Measuring');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Measuring System Information</div>
             </a>
         </div>
 
-        <div id="Contract" class="w3-container city" style="display:none; margin-top: 5%">
+        <div id="Contract" class="w3-container tabs" style="display:none; margin-top: 5%">
             <table class="table-fill">
                 <thead>
                 <tr>
+                    <th>Contract Number</th>
+                    <th>Contract Type</th>
+                    <th>Starting Date</th>
+                    <th>Suspension Date</th>
+                    <th>Closing Date</th>
+                    <th>Status</th>
+                    <th>Old Contract Number</th>
 
-                    <th class="text-center">Suspension Date</th>
-                    <th class="text-center">Closing Date</th>
-                    <th class="text-center">Contract Date</th>
-                    <th class="text-center">Contract Type</th>
-                    <th class="text-center">Contract Status</th>
-                    <th class="text-center">Type</th>
-                    <th class="text-center">Customer Cat</th>
-                    <th class="text-center">Unit</th>
-                    <th class="text-center">Block</th>
-                    <th class="text-center">Area</th>
-                    <th class="text-center">Subarea</th>
-                    <th class="text-center">Indexing</th>
                 </tr>
                 </thead>
-                <tbody class="table-hover">
-                <tr>
-                    <td class="text-center">January</td>
-                    <td class="text-center">$ 50,000.00</td>
-                </tr>
-                <tr>
-                    <td class="text-center">February</td>
-                    <td class="text-center">$ 10,000.00</td>
-                </tr>
-                <tr>
-                    <td class="text-center">March</td>
-                    <td class="text-center">$ 85,000.00</td>
-                </tr>
-                <tr>
-                    <td class="text-center">April</td>
-                    <td class="text-center">$ 56,000.00</td>
-                </tr>
-                <tr>
-                    <td class="text-center">May</td>
-                    <td class="text-center">$ 98,000.00</td>
-                </tr>
+                <tbody>
+                    @foreach($contracts as $contract)
+                        <tr >
+                            <td>{{$contract->contract_no}}</td>
+                            <td>{{$contract->type}}</td>
+                            <td>{{$contract->starting_date}}</td>
+                            <td>{{$contract->suspension_date}}</td>
+                            <td>{{$contract->closing_date}}</td>
+                            <td>{{$contract->status}}</td>
+                            <td>{{$contract->old_contract_no}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
-        <div id="Billing" class="w3-container city" style="display:none">
-            <h2>Paris</h2>
-            <p>Paris is the capital of France.</p>
+        <div id="Billing" class="w3-container tabs" style="display:none; margin-top: 5%">
+            <table class="table-fill">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Default Value</th>
+                    <th>Consumption (m3)</th>
+                    <th>Consumption A Forfait</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($billings as $billing)
+                    <tr>
+                        <td>{{$billing->method}}</td>
+                        <td>{{$billing->default_value}}</td>
+                        <td>{{$billing->consumption}}</td>
+                        <td>{{$billing->consumption_a_forfait}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
 
-        <div id="Measuring" class="w3-container city" style="display:none">
-            <h2>Tokyo</h2>
-            <p>Tokyo is the capital of Japan.</p>
+        <div id="Measuring" class="w3-container tabs" style="display:none; margin-top: 5%">
+            <table class="table-fill">
+                <thead>
+                <tr>
+                    <th>Folder Number</th>
+                    <th>Measuring Tool</th>
+                    <th>Size</th>
+                    <th>Register Number</th>
+                    <th>Old Number</th>
+                    <th>Stamp Number</th>
+                    <th>Box Number</th>
+                    <th>Manhole Number</th>
+                    <th>Current Measure</th>
+                    <th>Installing Date</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($measurements as $measurement)
+                    <tr>
+                        <td>{{$measurement->folder_no}}</td>
+                        <td>{{$measurement->measuring_tool}}</td>
+                        <td>{{$measurement->size}}</td>
+                        <td>{{$measurement->register_no}}</td>
+                        <td>{{$measurement->old_no}}</td>
+                        <td>{{$measurement->stamp_no}}</td>
+                        <td>{{$measurement->box_no}}</td>
+                        <td>{{$measurement->manhole_no}}</td>
+                        <td>{{$measurement->current_measure}}</td>
+                        <td>{{$measurement->installing_date}}</td>
+                        <td>{{$measurement->notes}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
     <script type="text/javascript" src="{{URL('js/tabs.js')}}"></script>

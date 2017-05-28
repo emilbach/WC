@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
+use App\User;
+use App\Contract;
+use App\Billing;
+use App\Measuring;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        //$emails = User::select('email')->where('active', 1)->get();
+        $email = Auth::user()->email;
+        $contracts = Contract::where('email', $email)->get();
+        $billings = Billing::where('email', $email)->get();
+        $measurements = Measuring::where('email', $email)->get();
+        return view('home', compact('contracts', 'billings', 'measurements'));
     }
 }

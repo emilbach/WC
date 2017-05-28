@@ -25,6 +25,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::select('id','first_name', 'last_name', 'address', 'city', 'email','created_at')->where('active', '!=', '1')->orderBy('id', 'desc')->get();
-        return view('admin', compact('users'));
+        $approved_users = User::select('id','first_name', 'last_name', 'address', 'city', 'email','created_at')->where('active', '=', '1')->orderBy('id', 'desc')->get();
+        return view('admin', compact('users', 'approved_users'));
     }
 }

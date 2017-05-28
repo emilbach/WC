@@ -1,8 +1,8 @@
 
 
-function openCity(evt, cityName) {
+function openTab(evt, tabName) {
     var i, x, tablinks;
-    x = document.getElementsByClassName("city");
+    x = document.getElementsByClassName("tabs");
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
@@ -10,6 +10,6 @@ function openCity(evt, cityName) {
     for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName).style.display = "block";
     evt.currentTarget.firstElementChild.className += " w3-border-red";
 }

@@ -13,14 +13,14 @@
 <div id="wrapper">
 
     <!-- Header -->
-    <div style="font-weight: bold; position: absolute; top: 2%; right: 2%;">
+    <div style="position: absolute; top: 2%; right: 2%;">
         @if (Route::has('login'))
             <div>
                 @if (Auth::check())
                     <a href="{{ url('/home') }}">My Profile</a>
                 @else
-                    <a class="button" href="{{ url('/login') }}">Login</a>
-                    <a class="button" href="{{ url('/register') }}">Register</a>
+                    <a class="button" style="font-weight: bold" href="{{ url('/login') }}">Login</a>
+                    <a class="button" style="font-weight: bold" href="{{ url('/register') }}">Register</a>
                 @endif
             </div>
         @endif
