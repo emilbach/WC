@@ -80,7 +80,7 @@
 
     <!-- Footer -->
     <footer id="footer">
-        <p>Made by: Emil Bah & Filip Ilieski</p>
+        <p>Made by: Emil Bah, Filip Ilieski, Andrej Hadji-Vasilev</p>
     </footer>
 
 </div>
