@@ -1,18 +1,8 @@
-.row{
-    margin-top:40px;
-    padding: 0 10px;
-}
-.clickable{
-    cursor: pointer;
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
 }
 
-.panel-heading div {
-    margin-top: -18px;
-    font-size: 15px;
-}
-.panel-heading div span{
-    margin-left:5px;
-}
-.panel-body{
-    display: none;
+.nav-tabs {
+    text-align:center;
 }

@@ -4,18 +4,20 @@
     <link rel="stylesheet" href="{{URL('css/tabs-look.css')}}">
     <link rel="stylesheet" href="{{URL('css/admin-tabs.css')}}">
     <link rel="stylesheet" href="{{URL('css/admin-approve.css')}}">
+    <link rel="stylesheet" href="{{URL('css/tables-info.css')}}">
 
 
-    <body class="tabs-back">
-    <div class="w3-container">
-        <div class="w3-row">
-            <a href="javascript:void(0)" onclick="openTab(event, 'Waiting');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Waiting for approval</div>
-            </a>
-            <a href="javascript:void(0)" onclick="openTab(event, 'Approved');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Approved</div>
-            </a>
-        </div>
+
+    <body>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="javascript:void(0)" onclick="openTab(event, 'Waiting');" class="tablink" style="font-weight: bold">Waiting</a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" onclick="openTab(event, 'Approved');" class="tablink" style="font-weight: bold">Approved</a>
+        </li>
+    </ul>
+
 
         <div id="Waiting" class="w3-container tabs" style="display:none">
             <div class="container">
@@ -41,7 +43,7 @@
                                         <td>{{$user->address}}</td>
                                         <td>{{$user->city}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->created_at}}</td>
+                                        <td>{{ date('d M Y, G:i', strtotime($user->created_at)) }}</td>
                                         <td>
                                             <p data-placement="top" data-toggle="tooltip" title="Approve">
                                                 <a class="btn btn-success" href="{{route('user.get.approve')}}?uid={{$user->id}}">
@@ -104,21 +106,21 @@
                                         <td>{{$approved_user->first_name}}</td>
                                         <td>{{$approved_user->last_name}}</td>
                                         <td>{{$approved_user->email}}</td>
-                                        <td>
+                                        <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Contract">
-                                                <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#contractEdit" >
+                                                <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#contractEdit">
                                                     <span class="glyphicon glyphicon-edit"></span>
                                                 </button>
                                             </p>
                                         </td>
-                                        <td>
-                                            <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Billing">
+                                        <td align="center">
+                                            <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Billing" style="text-align: center">
                                                 <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#billingEdit" >
                                                     <span class="glyphicon glyphicon-edit"></span>
                                                 </button>
                                             </p>
                                         </td>
-                                        <td>
+                                        <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Measuring">
                                                 <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#measuringEdit" >
                                                     <span class="glyphicon glyphicon-edit"></span>
@@ -133,39 +135,36 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="contractEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Update/Delete contract</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table-fill">
-                            <thead>
-                            <tr>
-                                <th>Contract Number</th>
-                                <th>Contract Type</th>
-                                <th>Starting Date</th>
-                                <th>Suspension Date</th>
-                                <th>Closing Date</th>
-                                <th>Status</th>
-                                <th>Old Contract Number</th>
 
-                            </tr>
-                            </thead>
-                            <tbody>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
+
+    <div class="modal fade" id="contractEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
         </div>
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true" class="">×   </span><span class="sr-only">Close</span>
+
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+
+                </div>
+                <div class="modal-body"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="modal fade" id="billingEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width: 95%">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -175,14 +174,10 @@
                         <table class="table-fill">
                             <thead>
                             <tr>
-                                <th>Contract Number</th>
-                                <th>Contract Type</th>
-                                <th>Starting Date</th>
-                                <th>Suspension Date</th>
-                                <th>Closing Date</th>
-                                <th>Status</th>
-                                <th>Old Contract Number</th>
-
+                                <th>Method</th>
+                                <th>Default Value</th>
+                                <th>Consumption (m3)</th>
+                                <th>Consumption A Forfait</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -195,8 +190,8 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-        <div class="modal fade" id="measuringEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade large" id="measuringEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog" style="width: 95%">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -206,13 +201,17 @@
                         <table class="table-fill">
                             <thead>
                             <tr>
-                                <th>Contract Number</th>
-                                <th>Contract Type</th>
-                                <th>Starting Date</th>
-                                <th>Suspension Date</th>
-                                <th>Closing Date</th>
-                                <th>Status</th>
-                                <th>Old Contract Number</th>
+                                <th>Folder Number</th>
+                                <th>Measuring Tool</th>
+                                <th>Size</th>
+                                <th>Register Number</th>
+                                <th>Old Number</th>
+                                <th>Stamp Number</th>
+                                <th>Box Number</th>
+                                <th>Manhole Number</th>
+                                <th>Current Measure</th>
+                                <th>Installing Date</th>
+                                <th>Notes</th>
 
                             </tr>
                             </thead>

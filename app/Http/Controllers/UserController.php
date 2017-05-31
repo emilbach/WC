@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Contract;
 
 class UserController extends Controller
 {
@@ -30,4 +31,5 @@ class UserController extends Controller
         User::destroy($request->uid);
         return redirect()->back();
     }
+
 }

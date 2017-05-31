@@ -42,9 +42,9 @@
                         <tr >
                             <td>{{$contract->contract_no}}</td>
                             <td>{{$contract->type}}</td>
-                            <td>{{$contract->starting_date}}</td>
-                            <td>{{$contract->suspension_date}}</td>
-                            <td>{{$contract->closing_date}}</td>
+                            <td>{{ date('d M Y', strtotime($contract->starting_date)) }}</td>
+                            <td>{{ date('d M Y', strtotime($contract->suspension_date)) }}</td>
+                            <td>{{ date('d M Y', strtotime($contract->closing_date)) }}</td>
                             <td>{{$contract->status}}</td>
                             <td>{{$contract->old_contract_no}}</td>
                         </tr>
@@ -105,7 +105,7 @@
                         <td>{{$measurement->box_no}}</td>
                         <td>{{$measurement->manhole_no}}</td>
                         <td>{{$measurement->current_measure}}</td>
-                        <td>{{$measurement->installing_date}}</td>
+                        <td>{{ date('d M Y', strtotime($measurement->installing_date)) }}</td>
                         <td>{{$measurement->notes}}</td>
                     </tr>
                 @endforeach
