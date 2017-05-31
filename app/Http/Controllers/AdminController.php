@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Contract;
+use App\Billing;
+use App\Measuring;
 
 class AdminController extends Controller
 {
@@ -26,6 +29,12 @@ class AdminController extends Controller
     {
         $users = User::select('id','first_name', 'last_name', 'address', 'city', 'email','created_at')->where('active', '!=', '1')->orderBy('id', 'desc')->get();
         $approved_users = User::select('id','first_name', 'last_name', 'address', 'city', 'email','created_at')->where('active', '=', '1')->orderBy('id', 'desc')->get();
-        return view('admin', compact('users', 'approved_users'));
+        /*foreach ($approved_users as $ap){
+            $contracts = Contract::where('email', $ap->email)->get();
+            $billings = Billing::where('email', $ap->email)->get();
+            $measurements = Measuring::where('email', $ap->email)->get();
+        }*/
+
+        return view('admin', compact('users', 'approved_users')); //, 'contracts', 'billings', 'measurements'
     }
 }

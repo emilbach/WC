@@ -12,14 +12,14 @@
         <h3 style="text-align: center">{{ Auth::user()->address }}</h3>
         <h3 style="text-align: center; margin-bottom: 1%">{{ Auth::user()->city }}</h3>
         <div class="w3-row">
-            <a href="javascript:void(0)" onclick="openTab(event, 'Contract');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Contract Information</div>
+            <a href="javascript:void(0)" class="tablink" onclick="openTab(event, 'Contract');">
+                <div class="w3-third w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Contract Information</div>
             </a>
-            <a href="javascript:void(0)" onclick="openTab(event, 'Billing');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Billing Information</div>
+            <a href="javascript:void(0)" class="tablink" onclick="openTab(event, 'Billing');">
+                <div class="w3-third w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Billing Information</div>
             </a>
-            <a href="javascript:void(0)" onclick="openTab(event, 'Measuring');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Measuring System Information</div>
+            <a href="javascript:void(0)" class="tablink" onclick="openTab(event, 'Measuring');">
+                <div class="w3-third w3-bottombar w3-hover-light-grey w3-padding" style="text-align: center; font-weight: bold">Measuring System Information</div>
             </a>
         </div>
 
