@@ -28,14 +28,15 @@ Route::prefix('admin')->group(function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/contract', 'AdminController@contract')->name('admin.user.get.contract');
+    Route::get('/contract/{email}', 'AdminController@contract')->name('admin.user.get.contract');
+    Route::get('/bill/{email}', 'AdminController@bill')->name('admin.user.get.bill');
+    Route::get('/measurement/{email}', 'AdminController@measurement')->name('admin.user.get.measurement');
 
 });
 
 Route::prefix('user')->group(function() {
     Route::get('/delete', 'UserController@delete')->name('user.get.delete');
     Route::get('/approve', 'UserController@approve')->name('user.get.approve');
-
     Route::get('/', 'UserController@index')->name('user.index');
 });
 

@@ -108,23 +108,23 @@
                                         <td>{{$approved_user->email}}</td>
                                         <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Contract">
-                                                <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#contractEdit">
+                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.contract', $approved_user->email) }}" >
                                                     <span class="glyphicon glyphicon-edit"></span>
-                                                </button>
+                                                </a>
                                             </p>
                                         </td>
                                         <td align="center">
-                                            <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Billing" style="text-align: center">
-                                                <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#billingEdit" >
+                                            <p data-placement="top" data-toggle="tooltip" title="Add/Edit/Delete Billing" style="text-align: center">
+                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.bill', $approved_user->email) }}" >
                                                     <span class="glyphicon glyphicon-edit"></span>
-                                                </button>
+                                                </a>
                                             </p>
                                         </td>
                                         <td align="center">
-                                            <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Measuring">
-                                                <button class="btn btn-primary btn-xs" data-title="Delete" data-toggle="modal" data-target="#measuringEdit" >
+                                            <p data-placement="top" data-toggle="tooltip" title="Add/Edit/Delete Measuring">
+                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.measurement', $approved_user->email) }}" >
                                                     <span class="glyphicon glyphicon-edit"></span>
-                                                </button>
+                                                </a>
                                             </p>
                                         </td>
                                     </tr>
@@ -134,96 +134,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-    <div class="modal fade" id="contractEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true" class="">×   </span><span class="sr-only">Close</span>
-
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-
-                </div>
-                <div class="modal-body"></div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="modal fade" id="billingEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog" style="width: 95%">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Add/Update Bill</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table-fill">
-                            <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Default Value</th>
-                                <th>Consumption (m3)</th>
-                                <th>Consumption A Forfait</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <div class="modal fade large" id="measuringEdit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-            <div class="modal-dialog" style="width: 95%">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Update/Delete Measurement</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table-fill">
-                            <thead>
-                            <tr>
-                                <th>Folder Number</th>
-                                <th>Measuring Tool</th>
-                                <th>Size</th>
-                                <th>Register Number</th>
-                                <th>Old Number</th>
-                                <th>Stamp Number</th>
-                                <th>Box Number</th>
-                                <th>Manhole Number</th>
-                                <th>Current Measure</th>
-                                <th>Installing Date</th>
-                                <th>Notes</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
         </div>
     </div>
     <script type="text/javascript" src="{{URL('js/tabs.js')}}"></script>

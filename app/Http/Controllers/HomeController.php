@@ -29,8 +29,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        //$emails = User::select('email')->where('active', 1)->get();
         $email = Auth::user()->email;
         $contracts = Contract::where('email', $email)->get();
         $billings = Billing::where('email', $email)->get();
