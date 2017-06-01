@@ -42,7 +42,7 @@
     background-color: #1F2739;
 }
 
-.table-fill td:first-child { color: white; }
+.table-fill td { color: white; }
 
 .table-fill tr:hover {
     background-color: #464A52;

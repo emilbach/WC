@@ -7,6 +7,7 @@ use App\User;
 use App\Contract;
 use App\Billing;
 use App\Measuring;
+use Laracasts\Utilities\JavaScript;
 
 class AdminController extends Controller
 {
@@ -40,6 +41,9 @@ class AdminController extends Controller
     public function contract($email)
     {
         $contract = Contract::where('email', '=', $email)->get();
+        /*JavaScript\JavaScriptFacade::put([
+            'cont' =>  json_encode(Contract::where('email', '=', $email)->get())
+        ]);*/
         return view('admin-contract', compact('contract'));
     }
 
