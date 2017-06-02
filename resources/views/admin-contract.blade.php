@@ -64,12 +64,12 @@
                 <div class="modal-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-
+                        @foreach($contract as $ct)
                         <div class="form-group">
                             <label for="contract_no" class="col-md-4 control-label">Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ old('first_name') }}" required autofocus>
+                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ $ct->contract_no }}" required autofocus>
 
                                 @if ($errors->has('first_name'))
                                     <span class="help-block">
@@ -78,11 +78,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="last_name" class="col-md-4 control-label">Last Name</label>
+                        <div class="form-group">
+                            <label for="type" class="col-md-4 control-label">Type</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                <input id="type" type="text" class="form-control" name="type" value="{{ $ct->type }}" required autofocus>
 
                                 @if ($errors->has('last_name'))
                                     <span class="help-block">
@@ -91,11 +91,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">Address</label>
+                        <div class="form-group">
+                            <label for="starting_date" class="col-md-4 control-label">Starting Date</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+                                <input id="starting_date" type="date" class="form-control" name="starting_date" value="{{ $ct->starting_date }}" required autofocus>
 
                                 @if ($errors->has('address'))
                                     <span class="help-block">
@@ -104,11 +104,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                            <label for="city" class="col-md-4 control-label">City</label>
+                        <div class="form-group">
+                            <label for="suspension_date" class="col-md-4 control-label">Suspension Date</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autofocus>
+                                <input id="suspension_date" type="date" class="form-control" name="suspension_date" value="{{ $ct->suspension_date }}" required autofocus>
 
                                 @if ($errors->has('city'))
                                     <span class="help-block">
@@ -117,11 +117,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="form-group">
+                            <label for="closing_date" class="col-md-4 control-label">Closing Date</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="closing_date" type="date" class="form-control" name="closing_date" value="{{ $ct->closing_date }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -130,28 +130,33 @@
                                 @endif
                             </div>
                         </div>
+                            <div class="form-group">
+                                <label for="status" class="col-md-4 control-label">Status</label>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                                <div class="col-md-6">
+                                    <input id="status" type="text" class="form-control" name="status" value="{{ $ct->status }}" required>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                                <div class="col-md-6">
+                                    <input id="old_contract_no" type="number" class="form-control" name="old_contract_no" value="{{ $ct->old_contract_no }}" required>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </form>
                 </div>
                 <div class="modal-footer ">
