@@ -6,18 +6,15 @@
     <link rel="stylesheet" href="{{URL('css/admin-approve.css')}}">
     <link rel="stylesheet" href="{{URL('css/tables-info.css')}}">
 
-
-
     <body>
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-            <a href="javascript:void(0)" onclick="openTab(event, 'Waiting');" class="tablink" style="font-weight: bold">Waiting</a>
-        </li>
-        <li class="nav-item">
-            <a href="javascript:void(0)" onclick="openTab(event, 'Approved');" class="tablink" style="font-weight: bold">Approved</a>
-        </li>
-    </ul>
-
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a href="javascript:void(0)" onclick="openTab(event, 'Waiting');" class="tablink" style="font-weight: bold">Waiting</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" onclick="openTab(event, 'Approved');" class="tablink" style="font-weight: bold">Approved</a>
+            </li>
+        </ul>
 
         <div id="Waiting" class="w3-container tabs" style="display:none">
             <div class="container">
@@ -108,22 +105,22 @@
                                         <td>{{$approved_user->email}}</td>
                                         <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Edit/Delete Contract">
-                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.contract', $approved_user->email) }}" >
-                                                    <span class="glyphicon glyphicon-edit"></span>
+                                                <a class="btn btn-success btn-md" href="{{ route('admin.user.get.contract', $approved_user->email) }}" >
+                                                    <span class="glyphicon glyphicon-info-sign"></span>
                                                 </a>
                                             </p>
                                         </td>
                                         <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Add/Edit/Delete Billing" style="text-align: center">
-                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.bill', $approved_user->email) }}" >
-                                                    <span class="glyphicon glyphicon-edit"></span>
+                                                <a class="btn btn-success btn-md" href="{{ route('admin.user.get.bill', $approved_user->email) }}" >
+                                                    <span class="glyphicon glyphicon-info-sign"></span>
                                                 </a>
                                             </p>
                                         </td>
                                         <td align="center">
                                             <p data-placement="top" data-toggle="tooltip" title="Add/Edit/Delete Measuring">
-                                                <a class="btn btn-primary btn-xs" href="{{ route('admin.user.get.measurement', $approved_user->email) }}" >
-                                                    <span class="glyphicon glyphicon-edit"></span>
+                                                <a class="btn btn-success btn-md" href="{{ route('admin.user.get.measurement', $approved_user->email) }}" >
+                                                    <span class="glyphicon glyphicon-info-sign"></span>
                                                 </a>
                                             </p>
                                         </td>
