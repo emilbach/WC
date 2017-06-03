@@ -41,7 +41,7 @@
                     @foreach($contracts as $contract)
                         <tr >
                             <td>{{$contract->contract_no}}</td>
-                            <td>{{$contract->type}}</td>
+                            <td>{{$contract->contract_type}}</td>
                             <td>{{ date('d M Y', strtotime($contract->starting_date)) }}</td>
                             <td>{{ date('d M Y', strtotime($contract->suspension_date)) }}</td>
                             <td>{{ date('d M Y', strtotime($contract->closing_date)) }}</td>

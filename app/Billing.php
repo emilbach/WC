@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Billing extends Model
 {
     protected $fillable = [
-        'method', 'default_value', 'consumption', 'consumption_a_forfait', 'email'
+        'pay_method', 'default_value', 'consumption', 'consumption_a_forfait', 'email'
     ];
 
     /**

@@ -15,12 +15,13 @@ class CreateTableBillings extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('method');
+            $table->string('pay_method');
             $table->float('default_value');
             $table->float('consumption');
             $table->float('consumption_a_forfait');
             $table->string('email', 250);
             $table->foreign('email')->references('email')->on('users');
+            $table->timestamps();
         });
     }
 

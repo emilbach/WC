@@ -28,7 +28,7 @@
             @foreach($contract as $ct)
                 <tr >
                     <td>{{$ct->contract_no}}</td>
-                    <td>{{$ct->type}}</td>
+                    <td>{{$ct->contract_type}}</td>
                     <td>{{ date('d M Y', strtotime($ct->starting_date)) }}</td>
                     <td>{{ date('d M Y', strtotime($ct->suspension_date)) }}</td>
                     <td>{{ date('d M Y', strtotime($ct->closing_date)) }}</td>
@@ -62,105 +62,107 @@
                     <h4 class="modal-title custom_align" id="Heading">Edit the contract</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.user.post.UpdateContract') }}">
                         {{ csrf_field() }}
-                        @foreach($contract as $ct)
+
+                        <input name="email" value="{{ $email }}" type="hidden">
                         <div class="form-group">
                             <label for="contract_no" class="col-md-4 control-label">Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ $ct->contract_no }}" required autofocus>
+                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
 
-                                @if ($errors->has('first_name'))
+                                @if ($errors->has('contract_no'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('contract_no') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="type" class="col-md-4 control-label">Type</label>
+                        <div class="form-group{{ $errors->has('contract_type') ? ' has-error' : '' }}">
+                            <label for="contract_type" class="col-md-4 control-label">Contract Type</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control" name="type" value="{{ $ct->type }}" required autofocus>
+                                <input id="contract_type" type="text" class="form-control" name="contract_type" value="{{ old('contract_type') }}" required autofocus>
 
-                                @if ($errors->has('last_name'))
+                                @if ($errors->has('contract_type'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('contract_type') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('starting_date') ? ' has-error' : '' }}">
                             <label for="starting_date" class="col-md-4 control-label">Starting Date</label>
 
                             <div class="col-md-6">
-                                <input id="starting_date" type="date" class="form-control" name="starting_date" value="{{ $ct->starting_date }}" required autofocus>
+                                <input id="starting_date" type="date" class="form-control" name="starting_date" value="{{ old('starting_date') }}" required autofocus>
 
-                                @if ($errors->has('address'))
+                                @if ($errors->has('starting_date'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
+                                        <strong>{{ $errors->first('starting_date') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('suspension_date') ? ' has-error' : '' }}">
                             <label for="suspension_date" class="col-md-4 control-label">Suspension Date</label>
 
                             <div class="col-md-6">
-                                <input id="suspension_date" type="date" class="form-control" name="suspension_date" value="{{ $ct->suspension_date }}" required autofocus>
+                                <input id="suspension_date" type="date" class="form-control" name="suspension_date" value="{{ old('suspension_date') }}" required autofocus>
 
-                                @if ($errors->has('city'))
+                                @if ($errors->has('suspension_date'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('city') }}</strong>
+                                        <strong>{{ $errors->first('suspension_date') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('closing_date') ? ' has-error' : '' }}">
                             <label for="closing_date" class="col-md-4 control-label">Closing Date</label>
 
                             <div class="col-md-6">
-                                <input id="closing_date" type="date" class="form-control" name="closing_date" value="{{ $ct->closing_date }}" required>
+                                <input id="closing_date" type="date" class="form-control" name="closing_date" value="{{ old('closing_date') }}" required>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('closing_date'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('closing_date') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                            <div class="form-group">
-                                <label for="status" class="col-md-4 control-label">Status</label>
 
-                                <div class="col-md-6">
-                                    <input id="status" type="text" class="form-control" name="status" value="{{ $ct->status }}" required>
+                        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                            <label for="status" class="col-md-4 control-label">Status</label>
 
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
+                            <div class="col-md-6">
+                                <input id="status" type="text" class="form-control" name="status" required>
+
                             </div>
-                            <div class="form-group">
-                                <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
-
-                                <div class="col-md-6">
-                                    <input id="old_contract_no" type="number" class="form-control" name="old_contract_no" value="{{ $ct->old_contract_no }}" required>
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                            @if ($errors->has('status'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('status') }}</strong>
                                     </span>
-                                    @endif
-                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('old_contract_no') ? ' has-error' : '' }}">
+                            <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
+
+                            <div class="col-md-6">
+                                <input id="old_contract_no" type="number" class="form-control" name="old_contract_no" required>
+
                             </div>
-                        @endforeach
+                            @if ($errors->has('old_contract_no'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('old_contract_no') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                 </div>
             </div>
             <!-- /.modal-content -->

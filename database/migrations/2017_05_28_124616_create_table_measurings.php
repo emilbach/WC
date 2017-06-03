@@ -28,6 +28,7 @@ class CreateTableMeasurings extends Migration
             $table->string('notes');
             $table->string('email', 250);
             $table->foreign('email')->references('email')->on('users');
+            $table->timestamps();
         });
     }
 
