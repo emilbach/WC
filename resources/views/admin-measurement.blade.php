@@ -3,12 +3,18 @@
 @section('content')
     <head>
         <link rel="stylesheet" href="{{URL('css/bootstrap.css')}}" />
-        <link rel="stylesheet" href="{{URL('css/tabs-look.css')}}">
+        <link rel="stylesheet" href="{{URL('css/admin-approve.css')}}">
         <link rel="stylesheet" href="{{URL('css/tables-info.css')}}">
     </head>
     <body style="background-color: #8eb4cb">
     <div class="w3-container">
         <h2 style="text-align: center">Measurement System Information</h2>
+        <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
+            <button class="btn btn-success" data-toggle="modal" data-target="#add" >
+                <span class="glyphicon glyphicon-plus"></span>
+                Add new measurement
+            </button>
+        </p>
         <table class="table-fill">
             <thead>
             <tr>
@@ -60,26 +66,27 @@
             </tbody>
         </table>
     </div>
-    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Edit the measurement</h4>
+                    <h4 class="modal-title custom_align" id="Heading">Add new measurement</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.user.post.addMeasurement', $email) }}">
                         {{ csrf_field() }}
-                        @foreach($measurement as $ms)
+                        <input name="email" value="{{ $email }}" type="hidden">
                             <div class="form-group">
                                 <label for="folder_no" class="col-md-4 control-label">Folder Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="folder_no" type="number" class="form-control" name="folder_no" value="{{ $ms->folder_no }}" required autofocus>
+                                    <input id="folder_no" type="number" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
 
-                                    @if ($errors->has('first_name'))
+                                    @if ($errors->has('folder_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('folder_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -88,11 +95,11 @@
                                 <label for="measuring_tool" class="col-md-4 control-label">Measuring Tool</label>
 
                                 <div class="col-md-6">
-                                    <input id="measuring_tool" type="text" class="form-control" name="measuring_tool" value="{{ $ms->measuring_tool }}" required autofocus>
+                                    <input id="measuring_tool" type="text" class="form-control" name="measuring_tool" value="{{ old('measuring_tool') }}" required autofocus>
 
-                                    @if ($errors->has('last_name'))
+                                    @if ($errors->has('measuring_tool'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('measuring_tool') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -101,11 +108,11 @@
                                 <label for="size" class="col-md-4 control-label">Size</label>
 
                                 <div class="col-md-6">
-                                    <input id="size" type="text" class="form-control" name="size" value="{{ $ms->size }}" required autofocus>
+                                    <input id="size" type="text" class="form-control" name="size" value="{{ old('size') }}" required autofocus>
 
-                                    @if ($errors->has('address'))
+                                    @if ($errors->has('size'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
+                                        <strong>{{ $errors->first('size') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -114,11 +121,11 @@
                                 <label for="register_no" class="col-md-4 control-label">Register Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="register_no" type="number" class="form-control" name="register_no" value="{{ $ms->register_no }}" required autofocus>
+                                    <input id="register_no" type="number" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
 
-                                    @if ($errors->has('city'))
+                                    @if ($errors->has('register_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('city') }}</strong>
+                                        <strong>{{ $errors->first('register_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -127,11 +134,11 @@
                                 <label for="old_no" class="col-md-4 control-label">Old Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="old_no" type="number" class="form-control" name="old_no" value="{{ $ms->old_no }}" required>
+                                    <input id="old_no" type="number" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('old_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('old_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -140,11 +147,11 @@
                                 <label for="stamp_no" class="col-md-4 control-label">Stamp Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="stamp_no" type="number" class="form-control" name="stamp_no" value="{{ $ms->stamp_no }}" required>
+                                    <input id="stamp_no" type="number" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('stamp_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('stamp_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -153,11 +160,11 @@
                                 <label for="box_no" class="col-md-4 control-label">Box Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="box_no" type="number" class="form-control" name="box_no" value="{{ $ms->box_no }}" required>
+                                    <input id="box_no" type="number" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('box_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('box_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -166,11 +173,11 @@
                                 <label for="manhole_no" class="col-md-4 control-label">Manhole Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="manhole_no" type="number" class="form-control" name="manhole_no" value="{{ $ms->manhole_no }}" required>
+                                    <input id="manhole_no" type="number" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('manhole_no'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('manhole_no') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -179,11 +186,11 @@
                                 <label for="current_measure" class="col-md-4 control-label">Current Measure</label>
 
                                 <div class="col-md-6">
-                                    <input id="current_measure" type="number" step="0.01" class="form-control" name="current_measure" value="{{ $ms->current_measure }}" required>
+                                    <input id="current_measure" type="number" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('current_measure'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('current_measure') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -192,11 +199,11 @@
                                 <label for="installing_date" class="col-md-4 control-label">Installing Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="installing_date" type="date" class="form-control" name="installing_date" value="{{ $ms->installing_date }}" required>
+                                    <input id="installing_date" type="date" class="form-control" name="installing_date" value="{{ old('installing_date') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('installing_date'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('installing_date') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -205,21 +212,187 @@
                                 <label for="notes" class="col-md-4 control-label">Notes</label>
 
                                 <div class="col-md-6">
-                                    <input id="notes" type="text" class="form-control" name="notes" value="{{ $ms->notes }}" required>
+                                    <input id="notes" type="text" class="form-control" name="notes" value="{{ old('notes') }}" required>
 
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('notes'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('notes') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                        @endforeach
+                        <div class="modal-footer ">
+                            <button type="submit" class="btn btn-success btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Add</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title custom_align" id="Heading">Edit the measurement</h4>
                 </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.user.post.updateMeasurement') }}">
+                        {{ csrf_field() }}
+                        <input name="email" value="{{ $email }}" type="hidden">
+                            <div class="form-group">
+                                <label for="folder_no" class="col-md-4 control-label">Folder Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="folder_no" type="number" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
+
+                                    @if ($errors->has('folder_no'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('folder_no') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="measuring_tool" class="col-md-4 control-label">Measuring Tool</label>
+
+                                <div class="col-md-6">
+                                    <input id="measuring_tool" type="text" class="form-control" name="measuring_tool" value="{{ old('measuring_tool') }}" required autofocus>
+
+                                    @if ($errors->has('measuring_tool'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('measuring_tool') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="size" class="col-md-4 control-label">Size</label>
+
+                                <div class="col-md-6">
+                                    <input id="size" type="text" class="form-control" name="size" value="{{ old('size') }}" required autofocus>
+
+                                    @if ($errors->has('size'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('size') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_no" class="col-md-4 control-label">Register Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="register_no" type="number" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
+
+                                    @if ($errors->has('register_no'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('register_no') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="old_no" class="col-md-4 control-label">Old Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="old_no" type="number" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
+
+                                    @if ($errors->has('old_no'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('old_no') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="stamp_no" class="col-md-4 control-label">Stamp Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="stamp_no" type="number" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
+
+                                    @if ($errors->has('stamp_no'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('stamp_no') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="box_no" class="col-md-4 control-label">Box Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="box_no" type="number" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
+
+                                    @if ($errors->has('box_no'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('box_no') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="manhole_no" class="col-md-4 control-label">Manhole Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="manhole_no" type="number" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
+
+                                    @if ($errors->has('manhole_no'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('manhole_no') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="current_measure" class="col-md-4 control-label">Current Measure</label>
+
+                                <div class="col-md-6">
+                                    <input id="current_measure" type="number" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
+
+                                    @if ($errors->has('current_measure'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('current_measure') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="installing_date" class="col-md-4 control-label">Installing Date</label>
+
+                                <div class="col-md-6">
+                                    <input id="installing_date" type="date" class="form-control" name="installing_date" value="{{ old('installing_date') }}" required>
+
+                                    @if ($errors->has('installing_date'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('installing_date') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes" class="col-md-4 control-label">Notes</label>
+
+                                <div class="col-md-6">
+                                    <input id="notes" type="text" class="form-control" name="notes" value="{{ old('notes') }}" required>
+
+                                    @if ($errors->has('notes'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('notes') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        <div class="modal-footer ">
+                            <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
             <!-- /.modal-content -->
         </div>

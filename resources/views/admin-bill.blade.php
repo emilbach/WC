@@ -9,6 +9,12 @@
     <body style="background-color: #8eb4cb">
     <div class="w3-container">
         <h2 style="text-align: center">Billing Information</h2>
+        <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
+            <button class="btn btn-success" data-toggle="modal" data-target="#add" >
+                <span class="glyphicon glyphicon-plus"></span>
+                Add new bill
+            </button>
+        </p>
         <table class="table-fill">
             <thead>
             <tr>
@@ -45,11 +51,6 @@
             @endforeach
             </tbody>
         </table>
-        <p data-placement="top" data-toggle="tooltip" title="Add" align="right" style="margin: 1.5%">
-            <button class="btn btn-success" data-title="Add" data-toggle="modal" data-target="#add" >
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </p>
     </div>
 
     <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
