@@ -94,7 +94,7 @@
                                 <th><input type="text" class="form-control" placeholder="e-mail" disabled></th>
                                 <th>Contract</th>
                                 <th>Billing</th>
-                                <th>Measiring</th>
+                                <th>Measurement</th>
                             </tr>
                             </thead>
                             <tbody>
