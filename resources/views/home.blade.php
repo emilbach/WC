@@ -66,7 +66,7 @@
                 <tbody>
                 @foreach($billings as $billing)
                     <tr>
-                        <td>{{$billing->method}}</td>
+                        <td>{{$billing->pay_method}}</td>
                         <td>{{$billing->default_value}}</td>
                         <td>{{$billing->consumption}}</td>
                         <td>{{$billing->consumption_a_forfait}}</td>

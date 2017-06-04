@@ -212,14 +212,22 @@
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                 </div>
                 <div class="modal-body">
-
-                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-warning-sign"></span>
+                        Are you sure you want to delete this Record?
+                    </div>
+                    <div class="modal-footer ">
+                        <a class="btn btn-success" href="{{ route('admin.user.deleteBill', $email) }}" >
+                            <span class="glyphicon glyphicon-ok-sign"></span> 
+                            Yes
+                        </a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span>
+                             No
+                        </button>
+                    </div>
                 </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                </div>
+
             </div>
             <!-- /.modal-content -->
         </div>

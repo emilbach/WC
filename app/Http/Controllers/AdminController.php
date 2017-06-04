@@ -69,6 +69,12 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function deleteContract($email)
+    {
+        Contract::where('email', '=', $email)->delete();
+        return redirect()->back();
+    }
+
     public function bill($email)
     {
         $bill = Billing::where('email', '=', $email)->get();
@@ -96,6 +102,12 @@ class AdminController extends Controller
             'consumption' => $request->consumption,
             'consumption_a_forfait' => $request->consumption_a_forfait
         ]);
+        return redirect()->back();
+    }
+
+    public function deleteBill($email)
+    {
+        Billing::where('email', '=', $email)->delete();
         return redirect()->back();
     }
 
@@ -139,6 +151,12 @@ class AdminController extends Controller
             'installing_date' => $request->installing_date,
             'notes' => $request->notes
         ]);
+        return redirect()->back();
+    }
+
+    public function deleteMeasurement($email)
+    {
+        Measuring::where('email', '=', $email)->delete();
         return redirect()->back();
     }
 }

@@ -31,12 +31,15 @@ Route::prefix('admin')->group(function() {
     Route::get('/contract/{email}', 'AdminController@contract')->name('admin.user.get.contract');
     Route::post('/contract/{email}/create', 'AdminController@createContract')->name('admin.user.post.createContract');
     Route::post('/contract', 'AdminController@updateContract')->name('admin.user.post.UpdateContract');
+    Route::get('/contract/{email}/delete', 'AdminController@deleteContract')->name('admin.user.deleteContract');
     Route::get('/bill/{email}', 'AdminController@bill')->name('admin.user.get.bill');
     Route::post('/bill/{email}/create', 'AdminController@addBill')->name('admin.user.post.addBill');
     Route::post('/bill', 'AdminController@updateBill')->name('admin.user.post.updateBill');
+    Route::get('/bill/{email}/delete', 'AdminController@deleteBill')->name('admin.user.deleteBill');
     Route::get('/measurement/{email}', 'AdminController@measurement')->name('admin.user.get.measurement');
     Route::post('/measurement/{email}/create', 'AdminController@addMeasurement')->name('admin.user.post.addMeasurement');
     Route::post('/measurement', 'AdminController@updateMeasurement')->name('admin.user.post.updateMeasurement');
+    Route::get('/measurement/{email}/delete', 'AdminController@deleteMeasurement')->name('admin.user.deleteMeasurement');
 });
 
 Route::prefix('user')->group(function() {

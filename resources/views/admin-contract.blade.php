@@ -9,12 +9,14 @@
     <body style="background-color: #8eb4cb">
     <div class="w3-container">
         <h2 style="text-align: center">Contract Information</h2>
-        <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
-            <button class="btn btn-success" data-toggle="modal" data-target="#add" >
-                <span class="glyphicon glyphicon-plus"></span>
-                Add contract
-            </button>
-        </p>
+            <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
+                <button class="btn btn-success" data-toggle="modal" data-target="#add" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Add contract
+                </button>
+            </p>
+
+
         <table class="table-fill">
             <thead>
             <tr>
@@ -110,6 +112,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group{{ $errors->has('suspension_date') ? ' has-error' : '' }}">
                             <label for="suspension_date" class="col-md-4 control-label">Suspension Date</label>
 
@@ -302,22 +305,28 @@
                     <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                 </div>
                 <div class="modal-body">
-
-                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
+                        <div class="alert alert-danger">
+                            <span class="glyphicon glyphicon-warning-sign"></span>
+                            Are you sure you want to delete this Record?
+                        </div>
+                        <div class="modal-footer ">
+                            <a class="btn btn-success" href="{{ route('admin.user.deleteContract', $email) }}" >
+                                <span class="glyphicon glyphicon-ok-sign"></span> 
+                                Yes
+                            </a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                 No
+                            </button>
+                        </div>
                 </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                </div>
+
             </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <script type="text/javascript" src="{{URL('js/tabs.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL('/js/admin-pan.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/bootstrap.min.js')}}"></script>
 
     </body>
