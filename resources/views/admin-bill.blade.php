@@ -234,7 +234,6 @@
         <!-- /.modal-dialog -->
     </div>
     <script type="text/javascript" src="{{URL('/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL('/js/admin-pan.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/bootstrap.min.js')}}"></script>
     </body>
 @endsection

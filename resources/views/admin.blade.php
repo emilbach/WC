@@ -92,9 +92,9 @@
                                 <th><input type="text" class="form-control" placeholder="First Name" disabled></th>
                                 <th><input type="text" class="form-control" placeholder="Last Name" disabled></th>
                                 <th><input type="text" class="form-control" placeholder="e-mail" disabled></th>
-                                <th>Contract</th>
-                                <th>Billing</th>
-                                <th>Measurement</th>
+                                <th class="text-center">Contract</th>
+                                <th class="text-center">Billing</th>
+                                <th class="text-center">Measurement</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -135,7 +135,6 @@
     </div>
     <script type="text/javascript" src="{{URL('js/tabs.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL('/js/admin-pan.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/admin-approve-users.js')}}"></script>
     </body>
