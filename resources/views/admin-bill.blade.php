@@ -8,7 +8,7 @@
     </head>
     <body style="background-color: #8eb4cb">
     <div class="w3-container">
-        <h2 style="text-align: center">Billing Information</h2>
+        <h2 style="text-align: center; font-weight: bold">Billing Information</h2>
         <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
             <button class="btn btn-success" data-toggle="modal" data-target="#add" >
                 <span class="glyphicon glyphicon-plus"></span>
