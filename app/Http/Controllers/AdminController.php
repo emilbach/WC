@@ -7,6 +7,7 @@ use App\User;
 use App\Contract;
 use App\Billing;
 use App\Measuring;
+use function PHPSTORM_META\type;
 
 class AdminController extends Controller
 {

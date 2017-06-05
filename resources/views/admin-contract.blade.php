@@ -10,10 +10,17 @@
     <div class="w3-container">
         <h2 style="text-align: center; font-weight: bold">Contract Information</h2>
             <p data-placement="top" data-toggle="tooltip" align="right" style="margin: 1.5%">
+                @if (sizeof($contract) === 0)
                 <button class="btn btn-success" data-toggle="modal" data-target="#add" >
                     <span class="glyphicon glyphicon-plus"></span>
                     Add contract
                 </button>
+                    @else
+                    <button class="btn btn-success" data-toggle="modal" data-target="#add" disabled>
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Add contract
+                    </button>
+                    @endif
             </p>
 
 
