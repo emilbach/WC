@@ -198,11 +198,12 @@
                         {{ csrf_field() }}
 
                         <input name="email" value="{{ $email }}" type="hidden">
+                        @foreach($contract as $ct)
                         <div class="form-group">
                             <label for="contract_no" class="col-md-4 control-label">Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="contract_no" type="number" min="0" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
+                                <input id="contract_no" type="number" min="0" class="form-control" name="contract_no" value="{{ $ct->contract_no }}" required autofocus>
 
                                 @if ($errors->has('contract_no'))
                                     <span class="help-block">
@@ -215,7 +216,7 @@
                             <label for="contract_type" class="col-md-4 control-label">Contract Type</label>
 
                             <div class="col-md-6">
-                                <input id="contract_type" type="text" class="form-control" name="contract_type" value="{{ old('contract_type') }}" required autofocus>
+                                <input id="contract_type" type="text" class="form-control" name="contract_type" value="{{ $ct->contract_type }}" required autofocus>
 
                                 @if ($errors->has('contract_type'))
                                     <span class="help-block">
@@ -228,7 +229,7 @@
                             <label for="starting_date" class="col-md-4 control-label">Starting Date</label>
 
                             <div class="col-md-6">
-                                <input id="starting_date" type="date" class="form-control" name="starting_date" value="{{ old('starting_date') }}" required autofocus>
+                                <input id="starting_date" type="date" class="form-control" name="starting_date" value="{{ $ct->starting_date }}" required autofocus>
 
                                 @if ($errors->has('starting_date'))
                                     <span class="help-block">
@@ -241,7 +242,7 @@
                             <label for="suspension_date" class="col-md-4 control-label">Suspension Date</label>
 
                             <div class="col-md-6">
-                                <input id="suspension_date" type="date" class="form-control" name="suspension_date" value="{{ old('suspension_date') }}" required autofocus>
+                                <input id="suspension_date" type="date" class="form-control" name="suspension_date" value="{{ $ct->suspension_date }}" required autofocus>
 
                                 @if ($errors->has('suspension_date'))
                                     <span class="help-block">
@@ -254,7 +255,7 @@
                             <label for="closing_date" class="col-md-4 control-label">Closing Date</label>
 
                             <div class="col-md-6">
-                                <input id="closing_date" type="date" class="form-control" name="closing_date" value="{{ old('closing_date') }}" required>
+                                <input id="closing_date" type="date" class="form-control" name="closing_date" value="{{ $ct->closing_date }}" required>
 
                                 @if ($errors->has('closing_date'))
                                     <span class="help-block">
@@ -268,7 +269,7 @@
                             <label for="status" class="col-md-4 control-label">Status</label>
 
                             <div class="col-md-6">
-                                <input id="status" type="text" class="form-control" name="status" required>
+                                <input id="status" type="text" class="form-control" name="status" value="{{ $ct->status }}" required>
 
                             </div>
                             @if ($errors->has('status'))
@@ -282,7 +283,7 @@
                             <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="old_contract_no" type="number" min="0" class="form-control" name="old_contract_no" required>
+                                <input id="old_contract_no" type="number" min="0" class="form-control" name="old_contract_no" value="{{ $ct->old_contract_no }}" required>
 
                             </div>
                             @if ($errors->has('old_contract_no'))
@@ -291,6 +292,7 @@
                                     </span>
                             @endif
                         </div>
+                        @endforeach
                         <div class="modal-footer ">
                             <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                         </div>
