@@ -35,4 +35,14 @@ class HomeController extends Controller
         $measurements = Measuring::where('email', $email)->get();
         return view('home', compact('contracts', 'billings', 'measurements'));
     }
+    public function updateUserInfo(Request $request)
+    {
+        User::where('email', '=', Auth::user()->email)->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'address' => $request->address,
+            'city' => $request->city
+        ]);
+        return redirect()->back();
+    }
 }
