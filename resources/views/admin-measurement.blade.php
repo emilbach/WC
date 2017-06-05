@@ -82,7 +82,7 @@
                                 <label for="folder_no" class="col-md-4 control-label">Folder Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="folder_no" type="number" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
+                                    <input id="folder_no" type="number" min="0" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
 
                                     @if ($errors->has('folder_no'))
                                         <span class="help-block">
@@ -121,7 +121,7 @@
                                 <label for="register_no" class="col-md-4 control-label">Register Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="register_no" type="number" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
+                                    <input id="register_no" type="number" min="0" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
 
                                     @if ($errors->has('register_no'))
                                         <span class="help-block">
@@ -134,7 +134,7 @@
                                 <label for="old_no" class="col-md-4 control-label">Old Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="old_no" type="number" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
+                                    <input id="old_no" type="number" min="0" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
 
                                     @if ($errors->has('old_no'))
                                         <span class="help-block">
@@ -147,7 +147,7 @@
                                 <label for="stamp_no" class="col-md-4 control-label">Stamp Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="stamp_no" type="number" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
+                                    <input id="stamp_no" type="number" min="0" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
 
                                     @if ($errors->has('stamp_no'))
                                         <span class="help-block">
@@ -160,7 +160,7 @@
                                 <label for="box_no" class="col-md-4 control-label">Box Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="box_no" type="number" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
+                                    <input id="box_no" type="number" min="0" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
 
                                     @if ($errors->has('box_no'))
                                         <span class="help-block">
@@ -173,7 +173,7 @@
                                 <label for="manhole_no" class="col-md-4 control-label">Manhole Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="manhole_no" type="number" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
+                                    <input id="manhole_no" type="number" min="0" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
 
                                     @if ($errors->has('manhole_no'))
                                         <span class="help-block">
@@ -186,7 +186,7 @@
                                 <label for="current_measure" class="col-md-4 control-label">Current Measure</label>
 
                                 <div class="col-md-6">
-                                    <input id="current_measure" type="number" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
+                                    <input id="current_measure" type="number" min="0" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
 
                                     @if ($errors->has('current_measure'))
                                         <span class="help-block">
@@ -248,7 +248,7 @@
                                 <label for="folder_no" class="col-md-4 control-label">Folder Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="folder_no" type="number" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
+                                    <input id="folder_no" type="number" min="0" class="form-control" name="folder_no" value="{{ old('folder_no') }}" required autofocus>
 
                                     @if ($errors->has('folder_no'))
                                         <span class="help-block">
@@ -287,7 +287,7 @@
                                 <label for="register_no" class="col-md-4 control-label">Register Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="register_no" type="number" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
+                                    <input id="register_no" type="number" min="0" class="form-control" name="register_no" value="{{ old('register_no') }}" required autofocus>
 
                                     @if ($errors->has('register_no'))
                                         <span class="help-block">
@@ -300,7 +300,7 @@
                                 <label for="old_no" class="col-md-4 control-label">Old Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="old_no" type="number" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
+                                    <input id="old_no" type="number" min="0" class="form-control" name="old_no" value="{{ old('old_no') }}" required>
 
                                     @if ($errors->has('old_no'))
                                         <span class="help-block">
@@ -313,7 +313,7 @@
                                 <label for="stamp_no" class="col-md-4 control-label">Stamp Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="stamp_no" type="number" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
+                                    <input id="stamp_no" type="number" min="0" class="form-control" name="stamp_no" value="{{ old('stamp_no') }}" required>
 
                                     @if ($errors->has('stamp_no'))
                                         <span class="help-block">
@@ -326,7 +326,7 @@
                                 <label for="box_no" class="col-md-4 control-label">Box Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="box_no" type="number" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
+                                    <input id="box_no" type="number" min="0" class="form-control" name="box_no" value="{{ old('box_no') }}" required>
 
                                     @if ($errors->has('box_no'))
                                         <span class="help-block">
@@ -339,7 +339,7 @@
                                 <label for="manhole_no" class="col-md-4 control-label">Manhole Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="manhole_no" type="number" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
+                                    <input id="manhole_no" type="number" min="0" class="form-control" name="manhole_no" value="{{ old('manhole_no') }}" required>
 
                                     @if ($errors->has('manhole_no'))
                                         <span class="help-block">
@@ -352,7 +352,7 @@
                                 <label for="current_measure" class="col-md-4 control-label">Current Measure</label>
 
                                 <div class="col-md-6">
-                                    <input id="current_measure" type="number" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
+                                    <input id="current_measure" type="number" min="0" step="0.01" class="form-control" name="current_measure" value="{{ old('current_measure') }}" required>
 
                                     @if ($errors->has('current_measure'))
                                         <span class="help-block">

@@ -45,7 +45,9 @@
         <!-- About -->
         <article id="about">
             <h2 class="major">About</h2>
-            <span class="image main"><img src="{{URL('/images/water.jpg')}}" alt="" /></span>
+            <span class="image main">
+                <img src="{{URL('/images/water.jpg')}}" alt="About" />
+            </span>
             <p style="text-align: justify; font-weight: bold">
                 Inquietude simplicity terminated she compliment remarkably few her nay.
                 The weeks are ham asked jokes. Neglected perceived shy nay concluded.

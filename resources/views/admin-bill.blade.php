@@ -81,7 +81,7 @@
                                 <label for="default_value" class="col-md-4 control-label">Default Value</label>
 
                                 <div class="col-md-6">
-                                    <input id="default_value" type="number" class="form-control" name="default_value" required autofocus>
+                                    <input id="default_value" type="number" min="0" class="form-control" name="default_value" required autofocus>
 
                                     @if ($errors->has('default_value'))
                                         <span class="help-block">
@@ -94,7 +94,7 @@
                                 <label for="consumption" class="col-md-4 control-label">Consumption</label>
 
                                 <div class="col-md-6">
-                                    <input id="consumption" type="number" step="0.01" class="form-control" name="consumption" required autofocus>
+                                    <input id="consumption" type="number" min="0" step="0.01" class="form-control" name="consumption" required autofocus>
 
                                     @if ($errors->has('consumption'))
                                         <span class="help-block">
@@ -107,7 +107,7 @@
                                 <label for="consumption_a_forfait" class="col-md-4 control-label">Consumption A Forfait</label>
 
                                 <div class="col-md-6">
-                                    <input id="consumption_a_forfait" type="number" step="0.01" class="form-control" name="consumption_a_forfait" required autofocus>
+                                    <input id="consumption_a_forfait" type="number" min="0" step="0.01" class="form-control" name="consumption_a_forfait" required autofocus>
 
                                     @if ($errors->has('consumption_a_forfait'))
                                         <span class="help-block">
@@ -157,7 +157,7 @@
                                 <label for="default_value" class="col-md-4 control-label">Default Value</label>
 
                                 <div class="col-md-6">
-                                    <input id="default_value" type="number" class="form-control" name="default_value" value="{{ old('default_value') }}" required autofocus>
+                                    <input id="default_value" type="number" min="0" class="form-control" name="default_value" value="{{ old('default_value') }}" required autofocus>
 
                                     @if ($errors->has('default_value'))
                                         <span class="help-block">
@@ -170,7 +170,7 @@
                                 <label for="consumption" class="col-md-4 control-label">Consumption</label>
 
                                 <div class="col-md-6">
-                                    <input id="consumption" type="number" step="0.01" class="form-control" name="consumption" value="{{ old('consumption') }}" required autofocus>
+                                    <input id="consumption" type="number" min="0" step="0.01" class="form-control" name="consumption" value="{{ old('consumption') }}" required autofocus>
 
                                     @if ($errors->has('consumption'))
                                         <span class="help-block">
@@ -183,7 +183,7 @@
                                 <label for="consumption_a_forfait" class="col-md-4 control-label">Consumption A Forfait</label>
 
                                 <div class="col-md-6">
-                                    <input id="consumption_a_forfait" type="number" step="0.01" class="form-control" name="consumption_a_forfait" value="{{ old('consumption_a_forfait') }}" required autofocus>
+                                    <input id="consumption_a_forfait" type="number" min="0" step="0.01" class="form-control" name="consumption_a_forfait" value="{{ old('consumption_a_forfait') }}" required autofocus>
 
                                     @if ($errors->has('consumption_a_forfait'))
                                         <span class="help-block">

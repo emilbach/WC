@@ -84,7 +84,7 @@
                             <label for="contract_no" class="col-md-4 control-label">Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
+                                <input id="contract_no" type="number" min="0" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
 
                                 @if ($errors->has('contract_no'))
                                     <span class="help-block">
@@ -165,7 +165,7 @@
                             <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="old_contract_no" type="number" class="form-control" name="old_contract_no" required>
+                                <input id="old_contract_no" type="number" min="0" class="form-control" name="old_contract_no" required>
 
                             </div>
                             @if ($errors->has('old_contract_no'))
@@ -202,7 +202,7 @@
                             <label for="contract_no" class="col-md-4 control-label">Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="contract_no" type="number" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
+                                <input id="contract_no" type="number" min="0" class="form-control" name="contract_no" value="{{ old('contract_no') }}" required autofocus>
 
                                 @if ($errors->has('contract_no'))
                                     <span class="help-block">
@@ -282,7 +282,7 @@
                             <label for="old_contract_no" class="col-md-4 control-label">Old Contract Number</label>
 
                             <div class="col-md-6">
-                                <input id="old_contract_no" type="number" class="form-control" name="old_contract_no" required>
+                                <input id="old_contract_no" type="number" min="0" class="form-control" name="old_contract_no" required>
 
                             </div>
                             @if ($errors->has('old_contract_no'))
