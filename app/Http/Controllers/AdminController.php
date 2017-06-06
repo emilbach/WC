@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 use App\User;
 use App\Contract;
 use App\Billing;
 use App\Measuring;
-use function PHPSTORM_META\type;
+
 
 class AdminController extends Controller
 {
@@ -30,8 +31,8 @@ class AdminController extends Controller
     {
         $users = User::select('id', 'first_name', 'last_name', 'address', 'city', 'email', 'created_at')->where('active', '!=', '1')->orderBy('id', 'desc')->get();
         $approved_users = User::select('id', 'first_name', 'last_name', 'address', 'city', 'email', 'created_at')->where('active', '=', '1')->orderBy('id', 'desc')->get();
-
-        return view('admin', compact('users', 'approved_users'));
+        $contacts = Contact::select('id', 'name', 'email', 'message', 'created_at')->orderBy('id', 'desc')->get();
+        return view('admin', compact('users', 'approved_users', 'contacts'));
     }
 
     public function contract($email)
@@ -158,6 +159,12 @@ class AdminController extends Controller
     public function deleteMeasurement($email)
     {
         Measuring::where('email', '=', $email)->delete();
+        return redirect()->back();
+    }
+
+    public function deleteContact($email)
+    {
+        Contact::where('email', '=', $email)->delete();
         return redirect()->back();
     }
 }

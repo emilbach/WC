@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/', 'WelcomeController@sendContact')->name('sendContact');
 
 Auth::routes();
 
@@ -40,6 +41,7 @@ Route::prefix('admin')->group(function() {
     Route::post('/measurement/{email}/create', 'AdminController@addMeasurement')->name('admin.user.post.addMeasurement');
     Route::post('/measurement', 'AdminController@updateMeasurement')->name('admin.user.post.updateMeasurement');
     Route::get('/measurement/{email}/delete', 'AdminController@deleteMeasurement')->name('admin.user.deleteMeasurement');
+    Route::get('/contactdelete/{email}', 'AdminController@deleteContact')->name('admin.user.deleteContact');
 });
 
 Route::prefix('user')->group(function() {

@@ -12,9 +12,12 @@
             <li class="nav-item">
                 <a href="javascript:void(0)" onclick="openTab(event, 'Approved');" class="tablink" style="font-weight: bold">Approved</a>
             </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" onclick="openTab(event, 'Contact');" class="tablink" style="font-weight: bold">Customers contact</a>
+            </li>
         </ul>
 
-        <div id="Waiting" class="w3-container tabs" style="display:none">
+        <div id="Waiting" class="tabs" style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="panel panel-primary filterable">
@@ -69,7 +72,7 @@
             </div>
         </div>
 
-        <div id="Approved" class="w3-container tabs" style="display:none;">
+        <div id="Approved" class="tabs" style="display:none;">
             <div class="container">
                 <div class="row">
                     <div class="panel panel-primary filterable">
@@ -125,6 +128,49 @@
                 </div>
             </div>
         </div>
+
+        <div id="Contact" class="tabs" style="display:none;">
+            <div class="container">
+                <div class="row">
+                    <div class="panel panel-primary filterable">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Customers contact requests</h3>
+                            <div class="pull-right">
+                                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                            <tr class="filters">
+                                <th><input type="text" class="form-control" placeholder="Name" disabled></th>
+                                <th><input type="text" class="form-control" placeholder="e-mail" disabled></th>
+                                <th>Message</th>
+                                <th>Submited</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($contacts as $cont)
+                                <tr>
+                                    <td>{{$cont->name}}</td>
+                                    <td>{{$cont->email}}</td>
+                                    <td style="text-align: justify; width: 50%">{{$cont->message}}</td>
+                                    <td class="text-center">{{ date('d M Y, G:i', strtotime($cont->created_at)) }}</td>
+                                    <td>
+                                        <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                            <a class="btn btn-danger" href="{{ route('admin.user.deleteContact', $cont->email, $cont->created_at) }}">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </p>
+                                    </td>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script type="text/javascript" src="{{URL('js/tabs.js')}}"></script>
     <script type="text/javascript" src="{{URL('/js/jquery.min.js')}}"></script>

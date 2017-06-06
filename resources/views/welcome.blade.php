@@ -59,7 +59,8 @@
         <!-- Contact -->
         <article id="contact">
             <h2 class="major">Contact</h2>
-            <form method="post" action="#">
+            <form method="post" action="{{route('sendContact')}}">
+                {{ csrf_field() }}
                 <div class="field half first">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" />
