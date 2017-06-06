@@ -16,13 +16,12 @@ use App\User;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/update', 'HomeController@updateUserInfo')->name('updateUserInfo');
-
-Route::get('/registered', 'Auth\RegisterController@registered')->name('registered');
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

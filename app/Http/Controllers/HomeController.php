@@ -31,6 +31,7 @@ class HomeController extends Controller
     {
         $email = Auth::user()->email;
         $contracts = Contract::where('email', $email)->get();
+        //echo json_encode($contracts);
         $billings = Billing::where('email', $email)->get();
         $measurements = Measuring::where('email', $email)->get();
         return view('home', compact('contracts', 'billings', 'measurements'));

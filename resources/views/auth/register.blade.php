@@ -98,11 +98,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-2">
-                                Company <input type="checkbox" name="company" value="0">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register

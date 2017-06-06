@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('email', 250)->primary();
             $table->string('password');
-            $table->boolean('company')->default(false);
+            //$table->boolean('company')->default(false);
             $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();

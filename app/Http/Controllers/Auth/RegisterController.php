@@ -42,8 +42,15 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $this->create(['first_name' => $request->first_name, 'last_name' => $request->last_name, 'address' => $request->address, 'city' => $request->city, 'email' => $request->email, 'password' => $request->password, 'company' => $request->company]);
-        return view('registered');
+        $user = User::where('email', '=', $request->email)->get();
+        if( sizeof($user) === 0)
+        {
+            $this->create(['first_name' => $request->first_name, 'last_name' => $request->last_name, 'address' => $request->address, 'city' => $request->city, 'email' => $request->email, 'password' => $request->password, 'company' => $request->company]);
+            return view('registered');
+        }
+        else
+            return view('email-warning');
+
     }
 
     /**
@@ -61,7 +68,6 @@ class RegisterController extends Controller
             'city' => 'required|string|max:50',
             'email' => 'required|string|email|max:100|primary:users',
             'password' => 'required|string|min:8|confirmed',
-            'company' => 'required|boolean'
         ]);
     }
 
@@ -79,8 +85,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'city' => $data['city'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'company' => $data['company']
+            'password' => bcrypt($data['password'])
         ]);
     }
 }
